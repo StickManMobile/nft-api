@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\tests",
+    "\\tests\\func",
+    "\\tests\\unit"
+  ],
+  "SelectedNode": "\\tests\\unit\\test_nftapi.py",
+  "PreviewInSolutionExplorer": false
+}
