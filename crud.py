@@ -54,7 +54,7 @@ def insert_nft(session : sessionmaker, rows):
 
 def query_nft_by_name(nft_name : str, session):
     records = session.query(NFT).filter(
-              NFT.meta["name"].astext == '%'+nft_name+'%'
+              NFT.meta["name"].astext.like('%'+nft_name+'%')
           ).all()
     return records
 

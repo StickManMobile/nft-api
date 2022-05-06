@@ -3,3 +3,5 @@ python-dotenv
 sqlalchemy
 sqlalchemy-json
 psycopg2-binary
+sqlalchemy-serializer
+pytest
