@@ -1,10 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\datamodels",
     "\\tests",
-    "\\tests\\func",
-    "\\tests\\unit"
+    "\\tests\\unit",
+    "\\__pycache__"
   ],
-  "SelectedNode": "\\tests\\unit\\test_nftapi.py",
+  "SelectedNode": "\\nftapi.py",
   "PreviewInSolutionExplorer": false
 }
