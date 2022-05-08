@@ -11,10 +11,11 @@ engine = create_engine(cfg.DATABASE_URI)
 
 
 def start_session():
-    session = sessionmaker()                                                                      
+    session = sessionmaker()
     session.configure(bind=engine)
     Base.metadata.create_all(engine)
     return session()
+
 
 def recreate_database():
     Base.metadata.drop_all(engine)
@@ -23,8 +24,10 @@ def recreate_database():
 
 def compile_query(query):
     """Via http://nicolascadou.com/blog/2014/01/printing-actual-sqlalchemy-queries"""
-    compiler = query.compile if not hasattr(query, 'statement') else query.statement.compile
+    compiler = query.compile if not hasattr(
+        query, 'statement') else query.statement.compile
     return compiler(dialect=postgresql.dialect())
+
 
 def upsert(session, model, rows, no_update_cols=[]):
     table = model.__table__
@@ -44,30 +47,30 @@ def upsert(session, model, rows, no_update_cols=[]):
     session.commit()
 
 
-def insert_contract(session : sessionmaker, rows):
-    upsert(session,Contract,rows)
+def insert_contract(session: sessionmaker, rows):
+    upsert(session, Contract, rows)
 
 
-def insert_nft(session : sessionmaker, rows):
-    upsert(session,NFT,rows)
+def insert_nft(session: sessionmaker, rows):
+    upsert(session, NFT, rows)
 
 
-def query_nft_by_name(nft_name : str, session):
+def query_nft_by_name(nft_name: str, session):
     records = session.query(NFT).filter(
-              NFT.meta["name"].astext.like('%'+nft_name+'%')
-          ).all()
+        NFT.meta["name"].astext.like('%' + nft_name + '%')
+    ).all()
     return records
 
 
-def query_nft_by_contract_address(contract_id : str, session):
+def query_nft_by_contract_address(contract_id: str, session):
     records = session.query(NFT).filter(
-              NFT.contract_id == contract_id
-          ).all()
+        NFT.contract_id == contract_id
+    ).all()
     return records
 
-def query_nft_by_contract_address_token(contract_id : str, token : str, session):
-     records = session.query(NFT).filter(
-              NFT.contract_id == contract_id
-              ,NFT.token_id == token
-           ).all()
-     return records
+
+def query_nft_by_contract_address_token(contract_id: str, token: str, session):
+    records = session.query(NFT).filter(
+        NFT.contract_id == contract_id, NFT.token_id == token
+    ).all()
+    return records

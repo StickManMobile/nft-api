@@ -1,5 +1,5 @@
 import flask
-import crud
+import dbaccess.crud as crud
 import json
 import pytest
 from flask import request
@@ -18,6 +18,7 @@ def by_name():
         list.append(data.to_dict())
     return json.dumps(list)
 
+
 @app.route('/bycontract', methods=['GET'])
 def by_contract():
     search = request.args.get('contract')
@@ -27,7 +28,8 @@ def by_contract():
     for data in nfts:
         list.append(data.to_dict())
     return json.dumps(list)
-    
+
+
 @app.route('/bycontracttoken', methods=['GET'])
 def by_contract2():
     search = request.args.get('contract')
@@ -38,8 +40,10 @@ def by_contract2():
         list.append(data.to_dict())
     return json.dumps(list)
 
+
 @app.route('/index', methods=['GET'])
 def home2():
     return "NOT YET IMPLEMENTED"
+
 
 app.run()

@@ -9,8 +9,9 @@ from sqlalchemy_serializer import SerializerMixin
 
 Base = declarative_base()
 
+
 @dataclass
-class Contract(Base,SerializerMixin):
+class Contract(Base, SerializerMixin):
     __tablename__ = 'contract'
     contract_id = Column(String, primary_key=True)
     contract_name = Column(String)
@@ -19,7 +20,8 @@ class Contract(Base,SerializerMixin):
 
     def __repr__(self):
         return "<Contract(Name='{}', Symbol'{}', Type={})>"\
-                .format(self.contract_name, self.contract_symb, self.contract_type)
+            .format(self.contract_name, self.contract_symb, self.contract_type)
+
 
 @dataclass
 class NFT(Base, SerializerMixin):

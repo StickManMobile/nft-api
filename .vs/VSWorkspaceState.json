@@ -2,10 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\datamodels",
+    "\\dbaccess",
     "\\tests",
+    "\\tests\\func",
     "\\tests\\unit",
     "\\__pycache__"
   ],
-  "SelectedNode": "\\nftapi.py",
+  "SelectedNode": "\\tests\\unit\\test_models.py",
   "PreviewInSolutionExplorer": false
 }
