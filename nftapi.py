@@ -4,8 +4,9 @@ import json
 import pytest
 from flask import request
 
+
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+app.config["DEBUG"] = False
 
 
 @app.route('/byname', methods=['GET'])
